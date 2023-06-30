@@ -10,8 +10,8 @@ class Content {
   final Color? color;
 
   const Content({
-    @required this.name,
-    @required this.imageUrl,
+    required this.name,
+    required this.imageUrl,
     this.titleImageUrl,
     this.videoUrl,
     this.description,
