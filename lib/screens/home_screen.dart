@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     super.initState();
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -50,6 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: ContentHeader(featuredContent: sintelContent),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 20.0),
+            sliver: SliverToBoxAdapter(
+              child: Previews(title: 'Previews', contentList: previews),
+            ),
           ),
         ],
       ),
