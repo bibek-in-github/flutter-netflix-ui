@@ -35,21 +35,31 @@ class Previews extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
               scrollDirection: Axis.horizontal,
               itemCount: contentList.length,
-              itemBuilder: (BuildContext context, int index){
+              itemBuilder: (BuildContext context, int index) {
                 final Content content = contentList[index];
                 return GestureDetector(
                   onTap: () => print(content.name),
-                  child: Stack( children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 16.0),
-                      height: 130.0,
-                      width: 130.0,
-                      color: Colors.purple,
-                    ),
-                  ],),
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                        height: 130.0,
+                        width: 130.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              content.imageUrl.toString(),
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          shape: BoxShape.circle,
+                          border: Border.all( width: 4.0 ),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
-              }
-              ),
+              }),
         ),
       ],
     );
